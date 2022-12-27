@@ -8,48 +8,6 @@
   <title>Arcade | BWR+</title>
   <link rel="stylesheet" href="../dist/css/arcade.css" />
   <script src="../dist/js/lib/jquery/jquery-3.6.1.min.js"></script>
-  <script>
-    const arcadeConfig = {
-      isAdult: false,
-      isFemboy: false,
-      isLGBTQ: false,
-      isIframe: false,
-    };
-
-    function parseArcadeConfig() {
-      JSON.stringify(arcadeConfig);
-    }
-
-    var Arcade = function ArcadeToggleContent() {
-      setTimeout(function () {Arcade()}, 1000);
-      if (arcadeConfig.isAdult === true) {
-        $("#AdultContentGames").css("display", "block");
-        $("#AdultContentGames").show();
-      } else {
-        $("#AdultContentGames").css("display", "none");
-        $("#AdultContentGames").hide();
-      }
-
-      if (arcadeConfig.isAdult === true && arcadeConfig.isFemboy === true && arcadeConfig.isLGBTQ === true) {
-        $("#FemboyGame").css("display", "block");
-        $("#FemboyGame").show();
-      } else {
-        $("#FemboyGame").css("display", "none");
-        $("#FemboyGame").hide();
-      }
-    };
-    Object.defineProperty(window, "arcadeConfig", {
-      get: function () {
-        Arcade();
-        return arcadeConfig;
-      },
-      set: function (value) {
-        arcadeConfig = value;
-        Arcade();
-        window.arcadeConfig = value;
-      },
-    });
-  </script>
 </head>
 
 <body onload="Arcade()">
@@ -68,16 +26,6 @@
     <br class="no_selection" />
     <a href="https://sandstormdev.indie.af/" class="no_selection">🐦💢 Angry Birds Chrome</a>
     <br class="no_selection" />
-    <div id="AdultContentGames" style="display: none;">
-      <br />
-      <img src="https://thumbs.gfycat.com/IdealFreshHapuka-size_restricted.gif" style="width: 17%; border-radius: 10px;"
-        class="no_selection" draggable="false" />
-      <br class="no_selection" />
-      <h2 class="no_selection">Adult Arcade</h2>
-      <hr class="no_selection" />
-      <a href="https://bonziarcade.cosmicstar37.repl.co/arcade/games/adult/MtE/" id="FemboyGame" class="no_selection">🍑💦🍆 Max the Elf</a>
-      <br id="FemboyGame" class="no_selection" />
-    </div>
   </div>
 </body>
 

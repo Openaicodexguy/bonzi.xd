@@ -372,23 +372,6 @@ let userCommands = {
 				success: success,
 			});
 	},
-    adult: function (secret_word) {
-		if (isReplit === true) {
-			var bonzi_godword = godword_random;
-		} else {
-			var bonzi_godword = this.room.prefs.godword;
-		}
-        let isReallyAdult = secret_word == bonzi_godword;
-        if (isReallyAdult) {
-            this.socket.emit("adult");
-        } else {
-            this.socket.emit("adult_false");
-        }
-        log.info.log("info", "adult", {
-            guid: this.guid,
-            isReallyAdult: isReallyAdult,
-        });
-    },
     "sanitize": function() {
         let sanitizeTerms = ["false", "off", "disable", "disabled", "f", "no", "n"];
         let argsString = Utils.argsString(arguments);
@@ -1160,7 +1143,6 @@ class User {
         if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
             this.private.runlevel = 3;
             this.socket.emit("admin");
-			this.socket.emit("adult");
             this.private.sanitize = false;
         }
        this.socket.on('login', this.login.bind(this));
