@@ -1382,7 +1382,7 @@ var Bonzi = (function () {
             ],
             [
                 { type: "text", text: "Fun Fact: The skript kiddie of this site didn't bother checking if the text that goes into the dialog box is HTML code." },
-                { type: "html", text: "<img src='../../img/icons/bonzi/topjej.png'></img>", say: "toppest jej" },
+                { type: "html", text: "<img src='./img/icons/bonzi/topjej.png'></img>", say: "toppest jej" },
             ],
         ],
         event_list_fact_end: [[{ type: "text", text: "o gee whilickers wasn't that sure interesting huh" }]],
@@ -1901,7 +1901,7 @@ function loadTest() {
 }
 function login() {
 	var login_sfx = new Audio("./sfx/logon.wav");
-    socket.emit("login", { name: $("#login_name").val(), room: $("#login_room").val() }), setup();
+    setTimeout(function () {socket.emit("login", { name: $("#login_name").val(), room: $("#login_room").val() }), setup()}, 954);
 	if ($("#login_room").val().includes("test")) debug = true;
 	if ($("#login_room").val().includes("debug")) debug = true;
 	login_sfx.play();

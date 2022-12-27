@@ -147,7 +147,7 @@ function BZWAgents() {
     (BZWAgents.prototype.getAgent = function (name) {
         if (name) { 
             return (
-				["black","grey","white","ghost","blue","cyan","brown","green","lime","dark_purple","purple","dark_red","red","orange","yellow","lemon","pink","pope","god","swag","ctcc2022","lewandowski","program","red_clippy","clippy_pope","qmark","uhoh","ross","boruc","bonziworld","bonzitv","boney","sonicfan08","splaat","unbojih","klasky1","zzx","bubble","announcer","flower","david","leafy","coiny","blocky","needle","snowball","eraser","pen","ruby","book","ice_cube","tennis_ball","golfball","teardrop","pin","woody","dora","match","pencil","firey","spongy","mokena","homestar","jaruzelski","walter","max","rover_pope","peedy_pope","pm","pm_pope","luther","diogo","redbrain","rednobrain","granddad_pope","fujitsu","fujitsu1","einstein","popehat","notpope","_","allifek","andrew","andrewgod","bgx","boney","boneygod","boneyv4","characblack","characblue","characbrown","characgreen","characpurple","characred","clubbbc","danielclown52","danielclown521","danieltard69","danieltard692","davidlime","everycopyofunbojih64ispersonalized","geri","god","hev","isaac","maroon","milkmankarlson","nodaniel","rainbow","seamus","skeleton","the_guardian","vvx","whitty","zander","angel","buggiest","bw_inverted","cartoon","diamond","emerald","flipped","glitch","glitch_jitter","god_glitch_gravity","god_glitch_lumisort","gold","hacker","megapope","nostalgic","oldgod","omega","overpowered_god","owner","power","power_cyan","power_fire","power_neon_color","power_orb_rainbowness","power_violet","power_zombie","purplesaber","rainbowsaber","revolution","sgh","sixteen","skygamer","slightman","superomegagod","trollface","ultimateomegagod","unsaturate","vapor","veryultrasupergod","thomasmuller","clippy", "genie", "merlin", "rover", "robby","samochud1"].includes(name.toLowerCase()) && (name = "Bonzi"),
+				["black","grey","white","ghost","blue","cyan","brown","green","lime","dark_purple","purple","dark_red","red","orange","yellow","lemon","pink","pope","god","swag","ctcc2022","lewandowski","program","red_clippy","clippy_pope","qmark","uhoh","ross","boruc","bonziworld","bonzitv","boney","sonicfan08","splaat","unbojih","klasky1","zzx","bubble","announcer","flower","david","leafy","coiny","blocky","needle","snowball","eraser","pen","ruby","book","ice_cube","tennis_ball","golfball","teardrop","pin","woody","dora","match","pencil","firey","spongy","mokena","homestar","jaruzelski","walter","max","rover_pope","peedy_pope","pm","pm_pope","luther","diogo","redbrain","rednobrain","granddad_pope","fujitsu","fujitsu1","einstein","popehat","notpope","_","allifek","andrew","andrewgod","bgx","boney","boneygod","boneyv4","characblack","characblue","characbrown","characgreen","characpurple","characred","clubbbc","danielclown52","danielclown521","danieltard69","danieltard692","davidlime","everycopyofunbojih64ispersonalized","geri","god","hev","isaac","maroon","milkmankarlson","nodaniel","rainbow","seamus","skeleton","the_guardian","vvx","whitty","zander","angel","buggiest","bw_inverted","cartoon","diamond","emerald","flipped","glitch","glitch_jitter","god_glitch_gravity","god_glitch_lumisort","gold","hacker","megapope","nostalgic","oldgod","omega","overpowered_god","owner","power","power_cyan","power_fire","power_neon_color","power_orb_rainbowness","power_violet","power_zombie","purplesaber","rainbowsaber","revolution","sgh","sixteen","skygamer","slightman","superomegagod","trollface","ultimateomegagod","unsaturate","vapor","veryultrasupergod","thomasmuller","clippy", "genie", "merlin", "rover", "robby", "samochud1"].includes(name.toLowerCase()) && (name = "Bonzi"),
                 _.find(this._agents, function (agent) {
                     return name.toLowerCase() === agent.slug;
                 }) || this.Bonzi
@@ -1382,7 +1382,7 @@ var Bonzi = (function () {
             ],
             [
                 { type: "text", text: "Fun Fact: The skript kiddie of this site didn't bother checking if the text that goes into the dialog box is HTML code." },
-                { type: "html", text: "<img src='../../img/icons/bonzi/topjej.png'></img>", say: "toppest jej" },
+                { type: "html", text: "<img src='./img/icons/bonzi/topjej.png'></img>", say: "toppest jej" },
             ],
         ],
         event_list_fact_end: [[{ type: "text", text: "o gee whilickers wasn't that sure interesting huh" }]],
@@ -1900,7 +1900,7 @@ function loadTest() {
 }
 function login() {
 	var login_sfx = new Audio("./sfx/logon.wav");
-    socket.emit("login", { name: $("#login_name").val(), room: $("#login_room").val() }), setup();
+    setTimeout(function () {socket.emit("login", { name: $("#login_name").val(), room: $("#login_room").val() }), setup()}, 954);
 	if ($("#login_room").val().includes("test")) debug = true;
 	if ($("#login_room").val().includes("debug")) debug = true;
 	login_sfx.play();
