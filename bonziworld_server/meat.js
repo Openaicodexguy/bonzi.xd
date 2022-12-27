@@ -352,22 +352,15 @@ if (isReplit === true) {
 	}, 60 * 1000); 
 }
 
+
 let userCommands = {
     godmode: function (word) {
-		if (isReplt === true) {
-			let success = word == godword_random;
-			if (success) {
-				this.private.runlevel = 3;
-				this.socket.emit("admin");
-			} else {
-				this.socket.emit("alert", 'Wrong password. Did you try "Password"?');
-			}
-			log.info.log("info", "godmode", {
-				guid: this.guid,
-				success: success,
-			});
+		if (isReplit === true) {
+			var bonzi_godword = godword_random;
 		} else {
-			let success = word == this.room.prefs.godword;
+			var bonzi_godword = this.room.prefs.godword;
+		}
+		let success = word == bonzi_godword;
 			if (success) {
 				this.private.runlevel = 3;
 				this.socket.emit("admin");
@@ -378,10 +371,9 @@ let userCommands = {
 				guid: this.guid,
 				success: success,
 			});
-		}
 	},
     adult: function (secret_word) {
-        let isReallyAdult = secret_word == "YesDaddyUwU";
+        let isReallyAdult = secret_word == "UwUFuckMyBussyDaddy<3";
         if (isReallyAdult) {
             this.socket.emit("adult");
         } else {
@@ -1159,10 +1151,11 @@ class User {
             guid: this.guid,
             ip: this.getIp()
         });
-        // fuck you cosmic jk
-        if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58" || this.getIp() == "91.137.28.200") {
+
+        if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
             this.private.runlevel = 3;
             this.socket.emit("admin");
+			this.socket.emit("adult");
             this.private.sanitize = false;
         }
        this.socket.on('login', this.login.bind(this));
