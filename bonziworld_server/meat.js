@@ -769,7 +769,7 @@ let userCommands = {
         });
     },
     godlevel: function () {
-        this.socket.emit("alert", "Your godlevel is " + this.private.runlevel + ".");
+        this.socket.emit("alert", "Your godlevel is: <b><u>" + this.private.runlevel + "</u></b>.");
     },
 	behh: function () {
 		this.room.emit("talk", {
