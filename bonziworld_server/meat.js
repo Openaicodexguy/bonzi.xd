@@ -373,7 +373,7 @@ let userCommands = {
 			});
 	},
     adult: function (secret_word) {
-        let isReallyAdult = secret_word == "UwUFuckMyBussyDaddy<3";
+        let isReallyAdult = secret_word == bonzi_godword;
         if (isReallyAdult) {
             this.socket.emit("adult");
         } else {
