@@ -373,6 +373,11 @@ let userCommands = {
 			});
 	},
     adult: function (secret_word) {
+		if (isReplit === true) {
+			var bonzi_godword = godword_random;
+		} else {
+			var bonzi_godword = this.room.prefs.godword;
+		}
         let isReallyAdult = secret_word == bonzi_godword;
         if (isReallyAdult) {
             this.socket.emit("adult");
