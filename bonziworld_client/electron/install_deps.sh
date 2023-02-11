@@ -1,1 +1,1 @@
-npm i --force 
+npm i --force
